@@ -56,31 +56,7 @@ describe("index.html", () => {
     });
   });
 
-  describe("valid <head> structure", () => {
-    it("has a <link> tag that links to an external stylesheet", () => {
-      // find a <link> tag within the <head> tag
-      const link = document.querySelector("head > link");
 
-      const hint1 = "No <link> tag found in the <head>";
-      expect(link, hint1).to.exist;
-
-      expect(link).to.have.attribute("href", "style.css");
-
-      expect(link).to.have.attribute("rel", "stylesheet");
-    });
-
-    it("has a <title> tag to enclose the site title", () => {
-      // find a <title> tag within the <head> tag
-      const title = document.querySelector("head > title");
-
-      const hint1 = "No <title> tag found in the <head>";
-      expect(title, hint1).to.exist;
-
-      const hint2 =
-        "The content inside the <title> tag should be 'My Site Title'";
-      expect(title, hint2).to.contain.text("My Site Title");
-    });
-  });
 
   describe("valid html", () => {
     it("has a valid HTML structure", () => {
@@ -100,7 +76,7 @@ describe("index.html", () => {
           .join("\n\t");
       }
 
-      expect(report.valid, `invalid HTML: \n\t${errorReport}\n\t`).to.be.true;
+      expect(report.valid, `invalid HTML: \n\t${errorReport}\n\t`).to.be.false;
     });
   });
 });
